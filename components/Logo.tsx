@@ -4,7 +4,7 @@ import { motion } from 'framer-motion';
 const Logo: React.FC = () => {
   return (
     <motion.div 
-      className="fixed top-6 right-6 md:top-8 md:right-10 z-50 pointer-events-none select-none mix-blend-screen"
+      className="fixed top-6 right-6 md:top-8 md:right-16 z-50 pointer-events-none select-none mix-blend-screen"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 1, delay: 0.5 }}

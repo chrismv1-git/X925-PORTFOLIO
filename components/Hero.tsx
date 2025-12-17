@@ -7,7 +7,7 @@ const Hero: React.FC = () => {
     <section className="relative min-h-screen flex flex-col justify-center items-center px-6 pt-20 pb-10 overflow-hidden z-10">
       
       {/* Decorative Technical Elements */}
-      <div className="absolute top-24 left-10 hidden lg:block mono text-xs text-[#FFC107] animate-pulse">
+      <div className="absolute top-8 left-16 hidden lg:block mono text-xs text-[#FFC107] animate-pulse">
         <div>System: ONLINE</div>
         <div>Latency: 12ms</div>
       </div>
