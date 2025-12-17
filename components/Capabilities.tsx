@@ -1,5 +1,5 @@
 import React from 'react';
-import { Server, Layout, GitMerge, Rocket } from 'lucide-react';
+import { Server, Layout, Brain, Rocket } from 'lucide-react';
 import { Reveal } from './Reveal';
 
 const Capabilities: React.FC = () => {
@@ -15,7 +15,7 @@ const Capabilities: React.FC = () => {
       desc: "We build robust backend infrastructure, databases, and APIs to establish secure, scalable foundations. We guarantee resilient architecture with reliable Authentication & Roles (User/Admin) management."
     },
     {
-      icon: <GitMerge className="w-6 h-6" />,
+      icon: <Brain className="w-6 h-6" />,
       title: "Automations & AI Technology",
       desc: "Minimize manual overhead and maximize focus. We embed specific AI software and tools designed to streamline complex tasks—from automated report generation to enhanced fraud detection—delivering immediate value and a rapid ROI."
     },
