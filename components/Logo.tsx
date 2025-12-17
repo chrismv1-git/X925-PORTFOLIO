@@ -12,7 +12,7 @@ const Logo: React.FC = () => {
       <div className="relative overflow-hidden py-1 px-2 group">
         <div className="flex items-start gap-1">
             <span className="mono font-bold text-sm md:text-base tracking-[0.25em] text-[#FFC107] drop-shadow-[0_0_10px_rgba(255,193,7,0.4)]">
-                X295
+                X925
             </span>
             <div className="w-1 h-1 bg-[#FFC107] rounded-full mt-1.5 shadow-[0_0_5px_#FFC107]" />
         </div>

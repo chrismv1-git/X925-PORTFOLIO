@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Project } from '../types';
 import { Reveal } from './Reveal';
 import { Code, X, CheckCircle2, Target, ArrowUpRight, AlertCircle } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { motion, AnimatePresence, useMotionValue, useSpring } from 'framer-motion';
 
 const projects: Project[] = [
   {
@@ -140,12 +140,20 @@ interface ProjectCardProps {
 }
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, onClick }) => {
-  const [cursorPos, setCursorPos] = useState({ x: 0, y: 0 });
+  // Use MotionValues for high-performance updates without re-renders
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+  
+  // Spring animation for smooth cursor following
+  const springX = useSpring(x, { stiffness: 400, damping: 25 });
+  const springY = useSpring(y, { stiffness: 400, damping: 25 });
+
   const [isHovering, setIsHovering] = useState(false);
 
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     const rect = e.currentTarget.getBoundingClientRect();
-    setCursorPos({ x: e.clientX - rect.left, y: e.clientY - rect.top });
+    x.set(e.clientX - rect.left);
+    y.set(e.clientY - rect.top);
   };
 
   return (
@@ -158,12 +166,23 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index, onClick }) =>
         onClick={() => onClick(project)}
       >
         {/* Custom Cursor "OPEN" Button */}
-        <div 
-            className={`pointer-events-none absolute z-50 flex h-24 w-24 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full bg-[#FFC107] text-black font-bold text-xs tracking-widest shadow-[0_0_30px_rgba(255,193,7,0.6)] transition-all duration-200 ease-out mix-blend-normal ${isHovering ? 'opacity-100 scale-100' : 'opacity-0 scale-50'}`}
-            style={{ left: cursorPos.x, top: cursorPos.y }}
+        <motion.div 
+            className="pointer-events-none absolute z-50 flex h-24 w-24 items-center justify-center rounded-full bg-[#FFC107] text-black font-bold text-xs tracking-widest shadow-[0_0_30px_rgba(255,193,7,0.6)] mix-blend-normal top-0 left-0"
+            style={{ 
+                x: springX, 
+                y: springY,
+                translateX: '-50%',
+                translateY: '-50%'
+            }}
+            initial={{ opacity: 0, scale: 0.5 }}
+            animate={{ 
+                opacity: isHovering ? 1 : 0, 
+                scale: isHovering ? 1 : 0.5 
+            }}
+            transition={{ type: "tween", ease: "easeOut", duration: 0.2 }}
         >
             <span className="animate-pulse">VIEW</span>
-        </div>
+        </motion.div>
 
         {/* Image Container */}
         <div className="relative h-72 overflow-hidden">
