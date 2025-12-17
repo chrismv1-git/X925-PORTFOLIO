@@ -45,7 +45,7 @@ const Process: React.FC = () => {
                THE PROCESS
             </span>
             <h2 className="text-3xl md:text-5xl font-bold text-white uppercase tracking-tight mb-4">
-              <span className="text-[#FFC107]">///</span> HOW WE WORK
+              <span className="text-[#FFC107]">///</span> DEVELOPMENT PROCESS
             </h2>
           </div>
         </Reveal>
