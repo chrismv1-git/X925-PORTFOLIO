@@ -238,7 +238,8 @@ const ProjectModal: React.FC<ModalProps> = ({ project, onClose }) => {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.95, y: 30 }}
           transition={{ type: "spring", damping: 30, stiffness: 300 }}
-          className="relative w-full h-full md:h-auto md:max-h-[95vh] md:max-w-7xl bg-[#050505] border-t border-b md:border border-white/10 md:rounded-xl shadow-[0_0_100px_rgba(0,0,0,1)] flex flex-col overflow-hidden"
+          // Reduced max-width from 7xl to 5xl and max-height from 95vh to 80vh to make popup ~25% smaller
+          className="relative w-full h-full md:h-auto md:max-h-[80vh] md:max-w-5xl bg-[#050505] border-t border-b md:border border-white/10 md:rounded-xl shadow-[0_0_100px_rgba(0,0,0,1)] flex flex-col overflow-hidden"
           onClick={(e) => e.stopPropagation()}
         >
             {/* Close Button - Floating */}
@@ -262,8 +263,8 @@ const ProjectModal: React.FC<ModalProps> = ({ project, onClose }) => {
                    />
                 </div>
 
-                {/* Content Body */}
-                <div className="p-8 md:p-12 lg:p-16 flex flex-col gap-12">
+                {/* Content Body - Reduced padding slightly */}
+                <div className="p-6 md:p-10 lg:p-12 flex flex-col gap-10">
                     
                     {/* Header Section (Moved Below Image) */}
                     <motion.div
@@ -276,11 +277,10 @@ const ProjectModal: React.FC<ModalProps> = ({ project, onClose }) => {
                                 Project ID: {project.id}
                             </span>
                         </div>
-                        {/* Reduced Heading Size by approx 20% */}
-                        <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold text-white uppercase tracking-tighter leading-tight mb-6">
+                        {/* Reduced Heading Size */}
+                        <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold text-white uppercase tracking-tighter leading-tight mb-6">
                             {project.title}
                         </h2>
-                        {/* Removed tags display in modal */}
                     </motion.div>
 
                     {/* Description Section */}
@@ -294,13 +294,13 @@ const ProjectModal: React.FC<ModalProps> = ({ project, onClose }) => {
                             <span className="w-8 h-[1px] bg-[#FFC107]"></span>
                             Executive Summary
                          </h3>
-                         <p className="text-gray-300 text-xl leading-relaxed font-light max-w-4xl">
+                         <p className="text-gray-300 text-lg leading-relaxed font-light max-w-4xl">
                             {project.description}
                          </p>
                      </motion.div>
 
                     {/* Challenge & Solution Grid */}
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-10">
                          {/* Challenge Column */}
                          {project.clientNeeds && (
                              <motion.div
@@ -308,18 +308,18 @@ const ProjectModal: React.FC<ModalProps> = ({ project, onClose }) => {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.5 }}
                              >
-                                <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-                                   <span className="text-red-500 text-3xl font-light">/</span> 
+                                <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-3">
+                                   <span className="text-red-500 text-2xl font-light">/</span> 
                                    <span className="tracking-tight">THE CHALLENGE</span>
                                 </h3>
-                                <div className="grid grid-cols-1 gap-4">
+                                <div className="grid grid-cols-1 gap-3">
                                     {project.clientNeeds.map((item, idx) => (
                                         <motion.div 
                                             key={idx}
                                             initial={{ opacity: 0, x: -20 }}
                                             animate={{ opacity: 1, x: 0 }}
                                             transition={{ delay: 0.5 + (idx * 0.1) }}
-                                            className="relative flex items-start gap-4 p-5 bg-red-500/[0.02] border border-red-500/10 hover:bg-red-500/[0.05] hover:border-red-500/30 transition-all duration-300 rounded-sm overflow-hidden group"
+                                            className="relative flex items-start gap-4 p-4 bg-red-500/[0.02] border border-red-500/10 hover:bg-red-500/[0.05] hover:border-red-500/30 transition-all duration-300 rounded-sm overflow-hidden group"
                                         >
                                             {/* Hover highlight bar */}
                                             <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-red-500 scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom"></div>
@@ -327,7 +327,7 @@ const ProjectModal: React.FC<ModalProps> = ({ project, onClose }) => {
                                             <div className="shrink-0 mt-1 w-5 h-5 rounded-full border border-red-500/30 text-red-500 flex items-center justify-center">
                                                 <AlertCircle className="w-3 h-3" />
                                             </div>
-                                            <p className="text-gray-300 text-sm md:text-base leading-relaxed">{item}</p>
+                                            <p className="text-gray-300 text-sm leading-relaxed">{item}</p>
                                         </motion.div>
                                     ))}
                                 </div>
@@ -341,18 +341,18 @@ const ProjectModal: React.FC<ModalProps> = ({ project, onClose }) => {
                                 animate={{ opacity: 1, y: 0 }}
                                 transition={{ delay: 0.7 }}
                              >
-                                <h3 className="text-2xl font-bold text-white mb-8 flex items-center gap-3">
-                                   <span className="text-[#00FFFF] text-3xl font-light">/</span> 
+                                <h3 className="text-xl font-bold text-white mb-6 flex items-center gap-3">
+                                   <span className="text-[#00FFFF] text-2xl font-light">/</span> 
                                    <span className="tracking-tight">WHAT WE DELIVER</span>
                                 </h3>
-                                <div className="grid grid-cols-1 gap-4">
+                                <div className="grid grid-cols-1 gap-3">
                                     {project.deliveredSolution.map((item, idx) => (
                                         <motion.div 
                                             key={idx}
                                             initial={{ opacity: 0, x: 20 }}
                                             animate={{ opacity: 1, x: 0 }}
                                             transition={{ delay: 0.7 + (idx * 0.1) }}
-                                            className="relative flex items-start gap-4 p-5 bg-[#00FFFF]/[0.02] border border-[#00FFFF]/10 hover:bg-[#00FFFF]/[0.05] hover:border-[#00FFFF]/30 transition-all duration-300 rounded-sm overflow-hidden group"
+                                            className="relative flex items-start gap-4 p-4 bg-[#00FFFF]/[0.02] border border-[#00FFFF]/10 hover:bg-[#00FFFF]/[0.05] hover:border-[#00FFFF]/30 transition-all duration-300 rounded-sm overflow-hidden group"
                                         >
                                             {/* Hover highlight bar */}
                                             <div className="absolute left-0 top-0 bottom-0 w-[2px] bg-[#00FFFF] scale-y-0 group-hover:scale-y-100 transition-transform duration-300 origin-bottom"></div>
@@ -360,7 +360,7 @@ const ProjectModal: React.FC<ModalProps> = ({ project, onClose }) => {
                                             <div className="shrink-0 mt-1 w-5 h-5 rounded-full border border-[#00FFFF]/30 text-[#00FFFF] flex items-center justify-center">
                                                 <CheckCircle2 className="w-3 h-3" />
                                             </div>
-                                            <p className="text-gray-300 text-sm md:text-base leading-relaxed">{item}</p>
+                                            <p className="text-gray-300 text-sm leading-relaxed">{item}</p>
                                         </motion.div>
                                     ))}
                                 </div>
