@@ -28,7 +28,7 @@ const Capabilities: React.FC = () => {
 
   return (
     <section className="relative py-32 px-6 z-10 overflow-hidden bg-black/40">
-      {/* Background Tech Grid */}
+      {/* Background Tech Grid - Smoothed fade on top and bottom */}
       <div className="absolute inset-0 z-0 pointer-events-none opacity-20" 
            style={{
              backgroundImage: `
@@ -36,7 +36,8 @@ const Capabilities: React.FC = () => {
                linear-gradient(to bottom, #333 1px, transparent 1px)
              `,
              backgroundSize: '40px 40px',
-             maskImage: 'linear-gradient(to bottom, transparent, black, transparent)'
+             maskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)',
+             WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)'
            }}>
       </div>
 

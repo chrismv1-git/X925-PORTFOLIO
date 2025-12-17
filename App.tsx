@@ -5,6 +5,7 @@ import Hero from './components/Hero';
 import Portfolio from './components/Portfolio';
 import Capabilities from './components/Capabilities';
 import Process from './components/Process';
+import Team from './components/Team';
 import Contact from './components/Contact';
 import Logo from './components/Logo';
 import Loader from './components/Loader';
@@ -36,6 +37,7 @@ function App() {
               <Portfolio />
               <Capabilities />
               <Process />
+              <Team />
               <Contact />
             </main>
           </>

@@ -16,8 +16,13 @@ const GridBackground: React.FC = () => {
     };
   }, []);
 
+  const maskStyle = {
+    maskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)',
+    WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 15%, black 85%, transparent)'
+  };
+
   return (
-    <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden">
+    <div className="fixed inset-0 z-0 pointer-events-none overflow-hidden" style={maskStyle}>
       {/* Base Grid - Barely Visible */}
       <div 
         className="absolute inset-0 z-0 opacity-[0.07]"
