@@ -14,7 +14,7 @@ const Contact: React.FC = () => {
             Let's get started!
           </h2>
           <p className="text-gray-400 text-lg mb-12 max-w-2xl mx-auto">
-            X295 Solutions offers the quickest, most resilient, and flexible framework to successfully move your web application, SaaS or AI-software from concept to live production.
+            X925 Solutions offers the quickest, most resilient, and flexible framework to successfully move your web application, SaaS or AI-software from concept to live production.
           </p>
 
           <div className="flex flex-col items-center gap-8 mb-20">
@@ -36,10 +36,9 @@ const Contact: React.FC = () => {
       {/* Footer Bottom */}
       <div className="max-w-7xl mx-auto pt-10 mt-10 border-t border-white/5 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600 mono gap-4">
         <div>
-          &copy; 2025 X295 Solutions. PROFESSIONAL WEB APPLICATION DEVELOPMENT.
+          &copy; 2025 X925 Solutions. PROFESSIONAL WEB APPLICATION DEVELOPMENT.
         </div>
         <div className="flex gap-6">
-          <span className="hover:text-white cursor-pointer transition-colors">PRIVACY PROTOCOL</span>
           <span className="flex items-center gap-2">
             SYSTEM STATUS: 
             <span className="text-emerald-500 font-bold flex items-center gap-1">

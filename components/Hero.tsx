@@ -44,7 +44,7 @@ const Hero: React.FC = () => {
           transition={{ duration: 0.8, delay: 0.4 }}
           className="text-sm md:text-base text-gray-500 mono"
         >
-          By X295 Solutions
+          By X925 Solutions
         </motion.p>
 
         <motion.p 
