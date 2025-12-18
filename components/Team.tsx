@@ -35,9 +35,9 @@ const Team: React.FC = () => {
       ]
     },
     {
-      name: "MARK, GERMANY",
+      name: "CHRIS, GERMANY",
       role: "UI/UX Designer",
-      image: "https://image2url.com/images/1766007121454-65c1e155-6036-47de-84ef-c4d212144ed9.jpg",
+      image: "https://image2url.com/images/1766017193685-afafeaa7-730b-40af-826c-9883b0146d61.jpg",
       badge: "https://image2url.com/images/1766007242258-448b3247-359c-4f71-bdc3-fda741930e68.png",
       points: [
         "High-Fidelity Visual Identity",
@@ -103,7 +103,7 @@ const Team: React.FC = () => {
                THE EXPERTS
             </span>
             <h2 className="text-3xl md:text-5xl font-bold text-white uppercase tracking-tight">
-              <span className="text-[#FFC107]">///</span> THE X925 TEAM
+              <span className="text-[#FFC107]">///</span> X925 SOLUTIONS
             </h2>
           </div>
         </Reveal>
